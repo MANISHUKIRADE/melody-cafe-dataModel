@@ -1,6 +1,6 @@
 const Connection = require('./connection/connection')
 class DataBaseManager {
-    constructor(logger,dilect,password,username,databaseName,host,port){
+    constructor(dilect,password,username,databaseName,host,port,logger=console){
         this.logger = logger;
         this.dilect = dilect;
         this.password = password;
@@ -8,8 +8,11 @@ class DataBaseManager {
         this.databaseName = databaseName;
         this.host = host;
         this.port = port;
-        this.connection = new Connection(this.dilect,this.password,this.username,this.databaseName,this.host,this.port,this.logger);
-        this.connection.createConnection()
+        this.connectionInstance = new Connection(this.dilect,this.password,this.username,this.databaseName,this.host,this.port,this.logger);
+        this.connection =  this.connectionInstance.createConnection()
+    }
+    getConnection(){
+        return this.connection;
     }
 }
 
