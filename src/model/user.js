@@ -22,7 +22,9 @@ module.exports = (sequelize, Sequelize)=>{
             allowNull:false
         },
         userType:{
-            type: Sequelize.STRING,
+            type: Sequelize.ENUM({
+                values: ['premium', 'Non-premium','Artist']
+              }),
             allowNull: false
         }
     })
