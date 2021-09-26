@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const DataBaseManager = require('./index')
+const DataBaseManager = require('../src/index')
 let databaseManager = new DataBaseManager('mysql','example','root','spotify','localhost',3306)
 let db = {
 
@@ -8,16 +8,16 @@ let db = {
 db.Sequelize = Sequelize;
 db.sequelize = databaseManager.getConnection();
 console.log(db.sequelize);
-db.User = require('./model/user')(db.sequelize,db.Sequelize);
-db.AlbumType = require('./model/albumType')(db.sequelize,db.Sequelize);
-db.Album = require('./model/album')(db.sequelize,db.Sequelize);
-db.Track = require('./model/track')(db.sequelize,db.Sequelize);
-db.AlbumTrack = require('./model/albumTrackLink')(db.sequelize,db.Sequelize);
-db.UserTrackLink = require('./model/userTracktable')(db.sequelize,db.Sequelize);
-db.Player = require('./model/player')(db.sequelize,db.Sequelize);
-db.PlayerQueue = require('./model/playerQueue')(db.sequelize,db.Sequelize);
-db.Notification = require('./model/notification')(db.sequelize,db.Sequelize);
-db.Subscription = require('./model/subscription')(db.sequelize,db.Sequelize);
+db.User = require('../src/model/user')(db.sequelize,db.Sequelize);
+db.AlbumType = require('../src/model/albumType')(db.sequelize,db.Sequelize);
+db.Album = require('../src/model/album')(db.sequelize,db.Sequelize);
+db.Track = require('../src/model/track')(db.sequelize,db.Sequelize);
+db.AlbumTrack = require('../src/model/albumTrackLink')(db.sequelize,db.Sequelize);
+db.UserTrackLink = require('../src/model/userTracktable')(db.sequelize,db.Sequelize);
+db.Player = require('../src/model/player')(db.sequelize,db.Sequelize);
+db.PlayerQueue = require('../src/model/playerQueue')(db.sequelize,db.Sequelize);
+db.Notification = require('../src/model/notification')(db.sequelize,db.Sequelize);
+db.Subscription = require('../src/model/subscription')(db.sequelize,db.Sequelize);
 // associations
 
 db.Album.belongsTo(db.AlbumType,{foreignKey: 'albumTypeId'});

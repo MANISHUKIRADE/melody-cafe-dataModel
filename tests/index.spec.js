@@ -15,4 +15,5 @@ const logger = winston.createLogger({
   ],
 });
 
-let databaseManager = new DatabaseManager(logger,'mysql','example','root','spotify','localhost',3306)
+let databaseManager = new DatabaseManager('mysql','example','root','spotify','localhost',3306);
+databaseManager.syncTable();
