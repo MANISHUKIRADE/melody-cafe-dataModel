@@ -1,7 +1,7 @@
 
-module.exports = (sequelize, Sequelize)=>{
-    const Subscription = sequelize.define("subscription",{
+module.exports = (sequelize, Sequelize) => {
+  const Subscription = sequelize.define('subscription', {
 
-    })
-    return Subscription;
-}
+  });
+  return Subscription;
+};

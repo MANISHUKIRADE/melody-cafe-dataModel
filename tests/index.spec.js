@@ -1,6 +1,6 @@
 const winston = require('winston');
 
-const DatabaseManager = require('../src/index') 
+const DatabaseManager = require('../src/index');
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
@@ -11,9 +11,9 @@ const logger = winston.createLogger({
     // - Write all logs with level `info` and below to `combined.log`
     //
     new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' }),
-  ],
+    new winston.transports.File({ filename: 'combined.log' })
+  ]
 });
 
-let databaseManager = new DatabaseManager('mysql','example','root','spotify','localhost',3306);
+const databaseManager = new DatabaseManager('mysql', 'example', 'root', 'spotify', 'localhost', 3306, logger);
 databaseManager.syncTable();
