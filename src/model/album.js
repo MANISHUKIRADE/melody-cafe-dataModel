@@ -5,6 +5,12 @@ module.exports = (sequelize, Sequelize) => {
       primaryKey: true,
       allowNull: false
     },
+    type: {
+      type: Sequelize.ENUM({
+        values: ['systemAlbum', 'userAlbum']
+      }),
+      allowNull: false
+    },
     name: {
       type: Sequelize.STRING,
       allowNull: false

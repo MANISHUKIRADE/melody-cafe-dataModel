@@ -6,7 +6,6 @@ async function syncTable (sequelize) {
   db.Sequelize = Sequelize;
   db.sequelize = sequelize;
   db.User = require('./model/user')(db.sequelize, db.Sequelize);
-  db.AlbumType = require('./model/albumType')(db.sequelize, db.Sequelize);
   db.Album = require('./model/album')(db.sequelize, db.Sequelize);
   db.Track = require('./model/track')(db.sequelize, db.Sequelize);
   db.AlbumTrack = require('./model/albumTrackLink')(db.sequelize, db.Sequelize);
@@ -17,8 +16,6 @@ async function syncTable (sequelize) {
   db.Subscription = require('./model/subscription')(db.sequelize, db.Sequelize);
   // associations
 
-  db.Album.belongsTo(db.AlbumType, { foreignKey: 'albumTypeId' });
-  db.AlbumType.hasMany(db.Album, { as: 'album' });
   db.Album.belongsTo(db.User, { foreignKey: 'publisher' });
 
   db.Track.belongsToMany(db.Album, { through: db.AlbumTrack });
