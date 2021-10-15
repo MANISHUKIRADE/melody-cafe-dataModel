@@ -26,6 +26,10 @@ module.exports = (sequelize, Sequelize) => {
         values: ['premium', 'Non-premium', 'Artist']
       }),
       allowNull: false
+    },
+    userMeta: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   });
   return User;
