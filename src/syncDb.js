@@ -14,7 +14,7 @@ async function syncTable (sequelize) {
   db.PlayerQueue = require('./model/playerQueue')(db.sequelize, db.Sequelize);
   db.Notification = require('./model/notification')(db.sequelize, db.Sequelize);
   db.Subscription = require('./model/subscription')(db.sequelize, db.Sequelize);
-  // associations
+  // associations.
 
   db.Album.belongsTo(db.User, { foreignKey: 'publisher' });
 

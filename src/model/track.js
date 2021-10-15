@@ -13,6 +13,10 @@ module.exports = (sequelize, Sequelize) => {
     createdAt: {
       type: Sequelize.DATE,
       allowNull: false
+    },
+    image: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   });
   return Track;

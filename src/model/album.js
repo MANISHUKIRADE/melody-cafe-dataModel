@@ -26,6 +26,10 @@ module.exports = (sequelize, Sequelize) => {
     updatedBy: {
       type: Sequelize.STRING,
       allowNull: true
+    },
+    image: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   });
   return Album;
