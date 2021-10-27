@@ -30,6 +30,10 @@ module.exports = (sequelize, Sequelize) => {
     image: {
       type: Sequelize.STRING,
       allowNull: true
+    },
+    track: {
+      type: Sequelize.STRING,
+      allowNull: true
     }
   });
   return Album;
